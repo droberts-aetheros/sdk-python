@@ -4,8 +4,8 @@
 
 import json
 
-from client.onem2m.OneM2MResource import OneM2MResource, OneM2MResourceContent
-from client.ae.AsyncResponseListener import AsyncResponseListenerFactory
+from ..onem2m.OneM2MResource import OneM2MResource, OneM2MResourceContent
+from ..ae.AsyncResponseListener import AsyncResponseListenerFactory
 
 from typing import List, Mapping, Any, Union
 

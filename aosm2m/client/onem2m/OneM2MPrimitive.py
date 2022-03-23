@@ -2,9 +2,9 @@
 
 #!/usr/bin/env python
 
-from client.onem2m.OneM2MOperation import OneM2MOperation
-from client.onem2m.http.HttpHeader import HttpHeader
-from client.onem2m.http.HttpStatusCode import HttpStatusCode
+from .OneM2MOperation import OneM2MOperation
+from .http.HttpHeader import HttpHeader
+from .http.HttpStatusCode import HttpStatusCode
 
 import json
 from enum import Enum, unique

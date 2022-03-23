@@ -4,12 +4,12 @@
 
 import requests, aiohttp, json, random, urllib
 
-from client.onem2m.OneM2MPrimitive import OneM2MPrimitive
-from client.onem2m.OneM2MOperation import OneM2MOperation
-from client.onem2m.http.OneM2MResponse import OneM2MResponse
-from client.onem2m.OneM2MResource import OneM2MResource, OneM2MResourceContent
-from client.exceptions.BaseException import BaseException
-from client.onem2m.http.HttpHeader import HttpHeader
+from ..OneM2MPrimitive import OneM2MPrimitive
+from ..OneM2MOperation import OneM2MOperation
+from ..http.OneM2MResponse import OneM2MResponse
+from ..OneM2MResource import OneM2MResource, OneM2MResourceContent
+from ...exceptions.BaseException import BaseException
+from ..http.HttpHeader import HttpHeader
 
 from typing import Dict, Mapping, MutableMapping, Any, List, Optional
 
@@ -328,7 +328,7 @@ class OneM2MRequest(OneM2MPrimitive):
                 # @todo do some logging
                 pass
 
-    def create(self, to: str, params: Parameters = None, content = None):
+    def create(self, to: str, params: Parameters = None, content = None, insecure=False):
         """ Synchronous OneM2M Create request.
 
         Args:
@@ -369,11 +369,12 @@ class OneM2MRequest(OneM2MPrimitive):
             # Serialize dict. @todo data serialization must be dictated by content-type
             json_data = json.dumps(data)
 
+
             # HTTP POST implied by OneM2M Create Operation (function signature).
-            http_response = requests.post(to, headers = headers, data=json_data, verify=False)
+            http_response = requests.post(to, headers = headers, data=json_data, verify=not insecure)
         else:
             # HTTP POST implied by OneM2M Create Operation (function signature).
-            http_response = requests.post(to, headers = headers, verify=False)
+            http_response = requests.post(to, headers = headers, data=json.dumps(content), verify=not insecure)
 
         # Return a OneM2MResponse instance.
         return OneM2MResponse(http_response)

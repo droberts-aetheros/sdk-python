@@ -5,9 +5,9 @@
 import json, asyncio, threading
 
 from aiohttp import web
-from client.onem2m.OneM2MPrimitive import OneM2MPrimitive
+from ..onem2m.OneM2MPrimitive import OneM2MPrimitive
 
-from client.onem2m.http.OneM2MResponse import OneM2MResponse
+from ..onem2m.http.OneM2MResponse import OneM2MResponse
 
 from typing import Callable, Mapping, MutableMapping, Optional
 

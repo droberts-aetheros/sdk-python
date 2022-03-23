@@ -4,10 +4,10 @@
 
 import requests, json
 
-from client.onem2m.http.HttpHeader import HttpHeader
-from client.onem2m.OneM2MPrimitive import OneM2MPrimitive, MissingRequiredControlParams
-from client.onem2m.OneM2MOperation import OneM2MOperation
-from client.onem2m.OneM2MResource import OneM2MResource
+from ..http.HttpHeader import HttpHeader
+from ..OneM2MPrimitive import OneM2MPrimitive, MissingRequiredControlParams
+from ..OneM2MOperation import OneM2MOperation
+from ..OneM2MResource import OneM2MResource
 
 from aiohttp import web
 from typing import Mapping, List, Optional

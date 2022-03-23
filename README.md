@@ -25,3 +25,9 @@ From docs/
 
 #### Build documentation.
 `make html`
+
+## Registration Tool
+
+Usage
+
+    python3 -m aosm2m -c ${IN_CSE_ADDRESS_WITH_PORT} -a ${APP_ID} --credential ${TOKEN_FROM_AE_REGISTRATION_CREDENTIAL_GENERATION} --register

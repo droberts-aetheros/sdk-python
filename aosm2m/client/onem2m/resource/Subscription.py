@@ -1,4 +1,4 @@
-from client.onem2m.OneM2MResource import OneM2MResource, OneM2MResourceContent
+from ..OneM2MResource import OneM2MResource, OneM2MResourceContent
 
 
 # {

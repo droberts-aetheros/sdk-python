@@ -4,14 +4,14 @@
 
 import json, random
 
-from client.ae.AE import AE
-from client.onem2m.OneM2MResource import OneM2MResource, OneM2MResourceContent
-from client.onem2m.OneM2MPrimitive import OneM2MPrimitive
-from client.onem2m.http.OneM2MRequest import OneM2MRequest
-from client.onem2m.OneM2MOperation import OneM2MOperation
-from client.onem2m.resource.ContentInstance import ContentInstance as ContentInstance
-from client.onem2m.resource.Subscription import Subscription
-from client.exceptions.InvalidArgumentException import InvalidArgumentException
+from ..ae.AE import AE
+from ..onem2m.OneM2MResource import OneM2MResource, OneM2MResourceContent
+from ..onem2m.OneM2MPrimitive import OneM2MPrimitive
+from ..onem2m.http.OneM2MRequest import OneM2MRequest
+from ..onem2m.OneM2MOperation import OneM2MOperation
+from ..onem2m.resource.ContentInstance import ContentInstance as ContentInstance
+from ..onem2m.resource.Subscription import Subscription
+from ..exceptions.InvalidArgumentException import InvalidArgumentException
 
 from typing import List, Optional
 
@@ -50,7 +50,7 @@ class CSE:
             raise InvalidArgumentException('AE registration expects an instance AE.')
 
         # Host and resource.
-        to = '{}://{}:{}/PN_CSE'.format(self.transport_protocol, self.host, self.port)
+        to = f'{self.transport_protocol}://{self.host}:{self.port}/PN_CSE'
 
         # op is not required as it is implied by the function that the params will be passed to.
         params = {
